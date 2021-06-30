@@ -21,6 +21,8 @@ namespace MediatRExample.Services
                 Message = message
             };
 
+            // On request, the handler will pick up our request, and return our expected results.
+            // We can then output that return string we're expecting.
             Console.WriteLine(await _mediator.Send(echoRequest));
         }
 
@@ -32,6 +34,7 @@ namespace MediatRExample.Services
                 Num2 = num2
             };
 
+            // Unlike our prior example, we're not expecting our message to come back. The request handles it all.
             await _mediator.Send(calculateSumRequest);
         }
 
@@ -42,6 +45,8 @@ namespace MediatRExample.Services
                 Message = message
             };
 
+            // Unlike with our normal requests, with a notification request we publish,
+            // allowing MediatR to loop through handlers, awaiting, and ensuring they are run in order.
             await _mediator.Publish(echoNotificationRequest);
         }
     }
