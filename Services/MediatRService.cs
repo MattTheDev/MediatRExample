@@ -14,7 +14,7 @@ namespace MediatRExample.Services
             _mediator = mediator;
         }
 
-        public async Task EchoRequest(string message)
+        public async Task Echo(string message)
         {
             var echoRequest = new EchoRequest
             {

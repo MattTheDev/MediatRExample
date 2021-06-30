@@ -20,7 +20,7 @@ namespace MediatRExample
             var service = provider.GetRequiredService<IMediatRService>();
 
             // Execute our service requests.
-            await service.EchoRequest("My test echo.");
+            await service.Echo("My test echo.");
             await service.CalculateSum(1, 2);
             await service.EchoNotification("My echo notification.");
         }
